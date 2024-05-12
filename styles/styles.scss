@@ -1,12 +1,13 @@
-$color-primary-1: hsl(0, 78%, 62%);
-$color-primary-2: hsl(180, 62%, 55%);
+$color-primary-1: hsl(180, 62%, 55%);
+$color-primary-2: hsl(0, 78%, 62%);
 $color-primary-3: hsl(34, 97%, 64%);
-$color-primrary-4: hsl(212, 86%, 64%);
+$color-primary-4: hsl(212, 86%, 64%);
 
 $color-neutral-1: hsl(234, 12%, 34%);
 $color-neutral-2: hsl(229, 6%, 66%);
 $color-neutral-3: hsl(0, 0%, 98%);
 
+$size-mobile: 0.8125rem;
 $size-body: 0.9375rem;
 
 $font-family: "Poppins", sans-serif;
@@ -126,3 +127,92 @@ select {
 /* --------------------------
   RESET END
 ----------------------------*/
+
+body {
+  font-family: $font-family;
+}
+
+
+.feature-header {
+  margin-block-start: 5.3125rem;
+  margin-inline: 2rem;
+
+  &__heading {
+    font-size: 1.5rem;
+    margin-block-end: 1rem;
+    color: $color-neutral-1;
+    text-align: center;
+  
+    &--main {
+      font-weight: $weight-extralight;
+    }
+  
+    &--sub {
+      font-weight: $weight-semibold;
+    }
+  }
+
+  &__message {
+    font-size: $size-body;
+    text-align: center;
+    color: $color-neutral-2;
+  }
+}
+
+
+
+.feature-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1.5625rem;
+  margin-inline: 2rem;
+  margin-block-start: 4.75rem;
+  margin-block-end: 4.875rem;
+}
+
+/* --------------------------
+  CARD STYLES START
+----------------------------*/
+
+.card {
+  box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
+  padding-inline: 1.75rem;
+  padding-block: 1.75rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+
+
+  &--supervisor {
+    border-block-start: 4px solid $color-primary-1;
+  }
+   
+  &--team {
+    border-block-start: 4px solid $color-primary-2;
+  }
+
+  &--karma {
+    border-block-start: 4px solid $color-primary-3;
+  }
+
+  &--calculator {
+    border-block-start: 4px solid $color-primary-4;
+  }
+
+  &__heading {
+    color: $color-neutral-1;
+    font-weight: $weight-semibold;
+    font-size: 1.25rem;
+  }
+
+  &__text {
+    font-size: $size-mobile;
+    color: $color-neutral-2;
+    margin-block-end: 2.5rem;
+  }
+
+  &__img {
+    align-self: flex-end;
+  }
+
+}
