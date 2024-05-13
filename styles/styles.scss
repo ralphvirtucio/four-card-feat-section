@@ -55,18 +55,17 @@ $weight-semibold: 600;
   box-sizing: border-box;
 }
 
-/* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
-  margin: 0;
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -75,149 +74,81 @@ ol[role='list'] {
   list-style: none;
 }
 
-/* Set core root defaults */
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
 /* Set core body defaults */
 body {
   min-height: 100vh;
-  text-rendering: optimizeSpeed;
   line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
 }
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
+  color: currentColor;
 }
 
 /* Make images easier to work with */
 img,
 picture {
-  max-inline-size: 100%;
-  block-size: auto;
+  max-width: 100%;
   display: block;
 }
 
 /* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
-  font: inherit;
+input, button,
+textarea, select {
+  font-family: inherit;
+  font-size: inherit;
 }
 
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-   scroll-behavior: auto;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
 }
 
 /* --------------------------
   RESET END
 ----------------------------*/
 
-body {
-  font-family: $font-family;
-}
+// main {
+//   padding-inline: 2rem;
+//   padding-block-start: 5.3125rem;
+//   padding-block-end: 4.875rem;
+// }
 
-
-.feature-header {
-  margin-block-start: 5.3125rem;
-  margin-inline: 2rem;
-
-  &__heading {
-    font-size: 1.5rem;
-    margin-block-end: 1rem;
-    color: $color-neutral-1;
-    text-align: center;
-  
-    &--main {
-      font-weight: $weight-extralight;
-    }
-  
-    &--sub {
-      font-weight: $weight-semibold;
-    }
-  }
-
-  &__message {
-    font-size: $size-body;
-    text-align: center;
-    color: $color-neutral-2;
-  }
-}
-
-
-
-.feature-main {
-  display: grid;
-  grid-template-columns: 1fr;
-  row-gap: 1.5625rem;
-  margin-inline: 2rem;
+.feature__content {
+  --flow-space: 1.5625rem;
   margin-block-start: 4.75rem;
-  margin-block-end: 4.875rem;
-
-  // 3 columns, 2 rows?
 }
-
-/* --------------------------
-  CARD STYLES START
-----------------------------*/
 
 .card {
-  box-shadow: 0 4px 4px rgba($color: #000000, $alpha: .25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
   padding-inline: 1.75rem;
   padding-block: 1.75rem;
   border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-
-
-  &--supervisor {
-    border-block-start: 4px solid $color-primary-1;
-  }
-   
-  &--team {
-    border-block-start: 4px solid $color-primary-2;
-  }
-
-  &--karma {
-    border-block-start: 4px solid $color-primary-3;
-  }
-
-  &--calculator {
-    border-block-start: 4px solid $color-primary-4;
-  }
-
-  &__heading {
-    color: $color-neutral-1;
-    font-weight: $weight-semibold;
-    font-size: 1.25rem;
-  }
-
-  &__text {
-    font-size: $size-mobile;
-    color: $color-neutral-2;
-    margin-block-end: 2.5rem;
-  }
-
-  &__img {
-    align-self: flex-end;
-  }
 }
 
-/* --------------------------
-  CARD STYLES END
-----------------------------*/
+
+.card__content {
+  --flow-space: 0;
+}
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
