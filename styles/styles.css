@@ -33,9 +33,17 @@ html {
 }
 
 /* Remove default margin in favour of better control in authored CSS */
-body, h1, h2, h3, h4, p,
-figure, blockquote, dl, dd {
-  margin-block-end: 0;
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -51,14 +59,21 @@ body {
 }
 
 /* Set shorter line heights on headings and interactive elements */
-h1, h2, h3, h4,
-button, input, label {
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
   line-height: 1.1;
 }
 
 /* Balance text wrapping on headings */
-h1, h2,
-h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   text-wrap: balance;
 }
 
@@ -76,8 +91,10 @@ picture {
 }
 
 /* Inherit fonts for inputs and buttons */
-input, button,
-textarea, select {
+input,
+button,
+textarea,
+select {
   font-family: inherit;
   font-size: inherit;
 }
@@ -95,9 +112,37 @@ textarea:not([rows]) {
 /* --------------------------
   RESET END
 ----------------------------*/
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.wrapper {
+  padding-inline: 2rem;
+}
+
+.feature__header {
+  text-align: center;
+  color: hsl(234, 12%, 34%);
+  margin-block-start: 5.3125rem;
+}
+.feature__header h1 {
+  font-size: clamp(1.5rem, 0.8398rem + 2.8169vi, 3.375rem);
+}
+.feature__header h1 div:nth-child(1) {
+  font-weight: 200;
+}
+.feature__header h1 div:nth-child(2) {
+  font-weight: 600;
+}
+.feature__header p {
+  color: hsl(229, 6%, 66%);
+  font-size: 0.9375rem;
+}
+
 .feature__content {
   --flow-space: 1.5625rem;
   margin-block-start: 4.75rem;
+  margin-block-end: 4.875rem;
 }
 
 .card {
@@ -106,9 +151,45 @@ textarea:not([rows]) {
   padding-block: 1.75rem;
   border-radius: 8px;
 }
+.card img {
+  width: fit-content;
+  align-self: flex-end;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 2.0625rem;
+}
+
+.card.border-primary-1 {
+  border-top: 4px solid hsl(180, 62%, 55%);
+}
+
+.card.border-primary-2 {
+  border-top: 4px solid hsl(0, 78%, 62%);
+}
+
+.card.border-primary-3 {
+  border-top: 4px solid hsl(34, 97%, 64%);
+}
+
+.card.border-primary-4 {
+  border-top: 4px solid hsl(212, 86%, 64%);
+}
 
 .card__content {
-  --flow-space: 0;
+  --flow-space: .5rem;
+}
+.card__content h2 {
+  margin-block-start: 0;
+  color: hsl(234, 12%, 34%);
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.card__content p {
+  color: hsl(229, 6%, 66%);
+  font-size: 0.8125rem;
 }
 
 .flow > * + * {
