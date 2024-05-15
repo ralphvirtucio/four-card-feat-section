@@ -31,7 +31,7 @@
 
   <body>
     <main class="wrapper">
-      <header class="[ feature__header ] [ flow ]">
+      <div class="[ feature__header ] [ flow ]">
         <h1>
           <div>Reliable, efficient delivery</div>
           <div>Powered by Technology</div>
@@ -40,9 +40,9 @@
           Our Artificial Intelligence powered tools use millions of project data points to
           ensure that your project is successful
         </p>
-      </header>
-      <div class="[ feature__content ] [ flow ]">
-        <article class="[ card ] [ flex-col ] [ border-primary-1 ]">
+      </div>
+      <div class="[ feature__content ]">
+        <div class="[ card ] [ flex-col ] [ border-primary-1 ] [ grid__supervisor ]">
           <div class="[ card__content ] [ flow ]">
             <h2>Supervisor</h2>
             <p>Monitors activity to identify project roadblocks</p>
@@ -50,8 +50,8 @@
           <img
             src="./images/icon-supervisor.svg"
             alt="Magnifying Glass" />
-        </article>
-        <article class="[ card ] [ flex-col ] [ border-primary-2 ]">
+        </div>
+        <div class="[ card ] [ flex-col ] [ border-primary-2 ] [ grid__team-builder ]">
           <div class="[ card__content ] [ flow ]">
             <h2>Team Builder</h2>
             <p>Scans our talent network to create the optimal team for your project</p>
@@ -59,8 +59,8 @@
           <img
             src="./images/icon-team-builder.svg"
             alt="Webpage and House" />
-        </article>
-        <article class="[ card ] [ flex-col ] [ border-primary-3 ]">
+        </div>
+        <div class="[ card ] [ flex-col ] [ border-primary-3 ] [ grid__karma ]">
           <div class="[ card__content ] [ flow ]">
             <h2>Karma</h2>
             <p>Regularly evaluates our talent to ensure quality</p>
@@ -68,8 +68,8 @@
           <img
             src="./images/icon-karma.svg"
             alt="Light Bulb" />
-        </article>
-        <article class="[ card ] [ flex-col ] [ border-primary-4 ]">
+        </div>
+        <div class="[ card ] [ flex-col ] [ border-primary-4 ] [ grid__calculator ]">
           <div class="[ card__content ] [ flow ]">
             <h2>Calculator</h2>
             <p>Uses data from past projects to provide better delivery estimates</p>
@@ -77,7 +77,7 @@
           <img
             src="./images/icon-calculator.svg"
             alt="Calculator in a monitor" />
-        </article>
+        </div>
       </div>
     </main>
   </body>

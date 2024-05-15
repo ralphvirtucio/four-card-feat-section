@@ -86,7 +86,7 @@ a:not([class]) {
 /* Make images easier to work with */
 img,
 picture {
-  max-width: 100%;
+  max-inline-size: 100%;
   display: block;
 }
 
@@ -114,6 +114,9 @@ textarea:not([rows]) {
 ----------------------------*/
 body {
   font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .wrapper {
@@ -137,12 +140,20 @@ body {
 .feature__header p {
   color: hsl(229, 6%, 66%);
   font-size: 0.9375rem;
+  max-inline-size: 55ch;
+  margin-inline: auto;
 }
 
 .feature__content {
   --flow-space: 1.5625rem;
-  margin-block-start: 4.75rem;
-  margin-block-end: 4.875rem;
+  margin-block-start: clamp(1.25rem, 0.1056rem + 4.8826vi, 4.75rem);
+  margin-block-end: clamp(1.25rem, 0.1056rem + 4.8826vi, 4.8755rem);
+  display: grid;
+  grid-template-columns: 1fr;
+  max-inline-size: 70rem;
+  column-gap: 1.875rem;
+  row-gap: 1.875rem;
+  margin-inline: auto;
 }
 
 .card {
@@ -194,6 +205,35 @@ body {
 
 .flow > * + * {
   margin-block-start: var(--flow-space, 1em);
+}
+
+@media only screen and (min-width: 48rem) {
+  .feature__content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media only screen and (min-width: 64rem) {
+  .feature__header {
+    margin-block-start: 5rem;
+  }
+  .feature__content {
+    grid-template-columns: repeat(3, 1fr);
+    margin-block-end: clamp(4.875rem, 0.75rem + 2vi, 5rem);
+  }
+  .grid__supervisor {
+    grid-row: 2/4;
+  }
+  .grid__team-builder {
+    grid-row: 1/3;
+    grid-column: 2;
+  }
+  .grid__karma {
+    grid-row: 3/5;
+    grid-column: 2;
+  }
+  .grid__calculator {
+    grid-row: 2/4;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
